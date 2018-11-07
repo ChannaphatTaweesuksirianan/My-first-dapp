@@ -90,7 +90,33 @@ App = {
                   articleTemplate.find('.article-seller').text(seller);
                   articleRow.append(articleTemplate.html());
             });
-      }
+      },
+
+      sellArticle: function() {
+            //ดึง artical ออกมาจาก web form
+            var _article_name = $('#article_name').val();
+            //ดึง description ออกมาจาก webform
+            var _article_description = $('#article_description').val();
+            //ดึงจำนวน ethereum ออกมาจาก web form และแปลงเป็น ค่า wei
+            var _price = $('#article_price').val();
+            var _article_price = web3.toWei(_price, "ether");
+
+            // เรียก Smart Contract เอามาใช้ในชื่อ instance และสั่ง function sellArticle
+            // กำหนด Address ผู้สั่งเป็น account ของเรา และกำหนดค่าแก๊ส
+            App.contracts.ChainList.deployed().then(function(instance){
+                  return instance.sellArticle(
+                        _article_name,
+                        _article_description,
+                        _article_price,
+                        { from: App.account, gas: 500000 }
+                        );
+            });      
+      }.then(function(){
+            App.reloadArticles();
+      }).catch(function(err){
+            console.error(err);
+      }),
+
 };
 
 $(function () {

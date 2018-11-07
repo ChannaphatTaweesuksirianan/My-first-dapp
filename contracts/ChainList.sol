@@ -8,6 +8,10 @@ contract ChainList {
     string description;
     uint256 price;
 
+    constructor() public {
+        sellArticle("iPhone Xs", "มือถือที่แพงมาก", 10000000000000000000);
+    }
+
 	// Sell thing info
     function sellArticle(string _name, string _description, uint256 _price) public {
         seller = msg.sender;

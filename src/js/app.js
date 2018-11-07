@@ -28,6 +28,10 @@ App = {
     
              return App.initContract();
     },
+
+    displayAccountInfo: function() {
+
+    },
   
      initContract: function() {
           /*

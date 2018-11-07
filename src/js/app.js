@@ -58,9 +58,11 @@ App = {
     },
   
      initContract: function() {
-          /*
-           * Replace me...
-           */
+      $.getJSON('ChainList.json', function(chainListArtiface){
+            App.contracts.ChainList = truffleContract(chainListArtifact);
+            App.contracts.ChainList.setProvider(App.web3Provider);
+            return App.reloadArticles();
+      });
      },
   };
   

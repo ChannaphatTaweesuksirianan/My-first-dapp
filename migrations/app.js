@@ -4,7 +4,7 @@ App = {
 
     init: function() {
 
-        var articlesRow = $('#articlesRow');
+        var articleRow = $('#articlesRow');
         var articleTemplate = $('#articleTemplate');
 
         articleTemplate.find('.panel-title').text('สินค้าชิ้นที่ 1');
@@ -12,10 +12,29 @@ App = {
         articleTemplate.find('.article-price').text('10.24');
         articleTemplate.find('.article-seller').text('ซื้อผู้ขาย');
 
-        articlesRow.append(articleTemplate.html());
+        articleRow.append(articleTemplate.html());
 
         return App.initWeb3();
     },
 
+    initWeb3: function() {
+        /*
+         * Replace me...
+         */
 
+        return App.initContract();
+   },
+
+   initContract: function() {
+        /*
+         * Replace me...
+         */
+   },
+};
+
+$(function() {
+   $(window).load(function() {
+        App.init();
+   });
+});
 }

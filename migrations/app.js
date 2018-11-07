@@ -4,7 +4,7 @@ App = {
 
     init: function() {
 
-        var articlesRow = $('#articleRow');
+        var articlesRow = $('#articlesRow');
         var articleTemplate = $('#articleTemplate');
 
         articleTemplate.find('.panel-title').text('สินค้าชิ้นที่ 1');

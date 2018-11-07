@@ -58,8 +58,8 @@ App = {
     },
   
      initContract: function() {
-      $.getJSON('ChainList.json', function(chainListArtiface){
-            App.contracts.ChainList = truffleContract(chainListArtifact);
+      $.getJSON('ChainList.json', function(chainListArtifact) {
+            App.contracts.ChainList = TruffleContract(chainListArtifact);
             App.contracts.ChainList.setProvider(App.web3Provider);
             return App.reloadArticles();
       });
@@ -67,7 +67,7 @@ App = {
 
      reloadArticles: function(){
            App.displayAccountInfo();
-           $('#articlesRow').emply();
+           $('#articlesRow').empty();
 
            App.contracts.ChainList.deployed().then( function(instance){
                   return instance.getArticle();
